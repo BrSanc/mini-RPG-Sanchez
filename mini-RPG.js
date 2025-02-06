@@ -47,15 +47,51 @@ const Dio = {
     difesa: 50,
 }
 
+// Opzioni Giocatore
+
+function opzioni(){
+    // interfaccia console - Opzioni giocatore
+    console.log("") 
+    console.log("Opzioni Giocatore")
+    console.log("1-Attacare 2-curarsi 3-tentare fuga")
+   
+    // Chiediamo al User una delle 3 opzioni
+    let opzione = Number(prompt("1-Attacare 2-curarsi 3-tentare fuga"));
+    switch (opzione) {
+        case 1: //ATTACO------------
+            console.log("attaca");
+            break;
+        case 2: //CURA-------------
+            console.log("Cura")
+            break;
+        case 3: //FUGA-------------
+            console.log("Fuga")   
+            break;
+        default:
+            break;
+    }
+
+//
+
+
+}
+
+//Console----------------------------------------------------------
 
 console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 console.log("                             Mini RPG                                          ")
 console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 console.log("")
 
-
-
 console.log("Nome Aventuriero: "+ char.name)
 console.log("Attaco: "+ char.attaco)
-console.log("Difesa: "+ char.difesa);
+console.log("Difesa: "+ char.difesa)
+
+opzioni()
+opzioni()
+
+
+
+
+
 
