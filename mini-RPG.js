@@ -26,7 +26,7 @@
 let char = {
     name: "",
     vita: 100,
-    attaco: Math.floor(Math.random() * (20 - 5) + 5),
+    attaco: Math.floor(Math.random() * (30 - 10) + 10),
     difesa: Math.floor(Math.random() * (10 - 0) + 0),
     cura: Math.floor(Math.random() * (70 - 50) + 70),
     pozioni: 3,
@@ -40,7 +40,7 @@ const listaMostri = [
         name: "Slime",
         vita: 25,
         attaco: 20,
-        difesa: 5,
+        difesa: 3,
         Fuga: 90,
     },
 
@@ -72,6 +72,7 @@ function opzioni(){
     console.log("") 
     console.log("Opzioni Giocatore")
     console.log("1-Attacare 2-curarsi 3-tentare fuga")
+    console.log("")
    
     // Chiediamo al User una delle 3 opzioni
     let opzione = Number(prompt("1-Attacare 2-curarsi 3-tentare fuga"));
@@ -80,7 +81,7 @@ function opzioni(){
 
             console.log("xxxxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxx");
             // Attaco del aventuriero - difesa del mostro selezionato
-            let dannoReale = char.attaco - mostroSele.difesa
+            const dannoReale = char.attaco - mostroSele.difesa
             // Mostro perde vita
             mostroSele.vita = mostroSele.vita - dannoReale
 
