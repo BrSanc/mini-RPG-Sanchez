@@ -63,7 +63,7 @@ const listaMostri = [
 
 //Selezione Randomica del Mostro
 
-const mostroSele = listaMostri[Math.floor(Math.random() * (2 - 0) + 0)]
+const mostroSele = listaMostri[Math.floor(Math.random() * (3 - 0) + 0)]
 
 // Opzioni Giocatore
 
@@ -79,7 +79,7 @@ function opzioni(){
     switch (opzione) {
         case 1: //ATTACO----------------------------------------------------------
 
-            console.log("xxxxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxx");
+            console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Hai Attacato xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             // Attaco del aventuriero - difesa del mostro selezionato
             const dannoReale = char.attaco - mostroSele.difesa
             // Mostro perde vita
@@ -96,7 +96,7 @@ function opzioni(){
 
             // Aventuriero si cura
             if(char.pozioni > 0){
-                console.log("xxxxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxx");
+                console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                 char.vita = char.vita + char.cura
                 console.log(`Ti curi di ${char.cura} - Vita Totale: ${char.vita} `)
                 console.log(`Pozioni rimanenti: ${char.pozioni}`)
@@ -104,20 +104,20 @@ function opzioni(){
 
             //Se non ha pozioni, non si cura
             } else {
-                console.log(`xxxxxxxxxxxxxxxxxxxx Non puoi curarti - 0 pozioni xxxxxxxxxxxxxxxxxxxx`);
+                console.log("xxxxxxxxxxxxxxxxxxxxxxx Non puoi curarti - 0 pozioni xxxxxxxxxxxxxxxxxxxxxxxxxx")
                 console.log("")
             }
             break;
 
         case 3: //FUGA------------------------------------------------------------------
-                console.log("xxxxxxxxxxxxxxxxxxxx Probi a scapare xxxxxxxxxxxxxxxxxxxx"); 
+                console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Probi a Scapare xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")     
             let tentativoDiFuga =  Math.floor(Math.random() * (100 - 0) + 0)
             if( tentativoDiFuga <= mostroSele.Fuga ){  
-                console.log("xxxxxxxxxxxxxxxxxxxx SEI SCAPATO xxxxxxxxxxxxxxxxxxxx")
+                console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx SEI SCAPATO xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                 console.log("")
                 gioco = true
             } else{
-                console.log("xxxxxxxxxxxxxxxxxxxx Non sei riuscito ad escapare xxxxxxxxxxxxxxxxxxxx")
+                console.log("xxxxxxxxxxxxxxxxxxxxxxx Non sei riuscito ad escapare xxxxxxxxxxxxxxxxxxxxxxxxxx")
                 console.log("")
             }
             break;
@@ -130,7 +130,7 @@ function opzioni(){
 //Attaco Enemico
 function attacoEnemico(){
     // Il nemico togli vita al aventuriero
-    console.log(`xxxxxxxxxxxxxxxxxxxx ${mostroSele.name} ha attacato xxxxxxxxxxxxxxxxxxxx`);
+    console.log(`xxxxxxxxxxxxxxxxxxxxxxxxxxx ${mostroSele.name} ha attacato xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`);
     let dannoReale = mostroSele.attaco - char.difesa
     char.vita = char.vita - dannoReale 
     console.log(`l'aventuriero ${char.name} ha perso ${dannoReale}: `)
@@ -140,9 +140,9 @@ function attacoEnemico(){
 
 //Console----------------------------------------------------------
 
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-console.log("                             Mini RPG                                          ")
-console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log("%cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "color: yellow;");
+console.log("%c                 MINI RPG                      ", "color: yellow; font-size: 38px; font-weight: bold; font-family: Homenaje;");
+console.log("%cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "color: yellow;");
 console.log("")
 
 // Descrizione del Aventuriero
