@@ -112,8 +112,23 @@ console.log("")
 console.log("Oh no! è apparso")
 console.log(mostroSele.name)
 
-opzioni()
-attacoEnemico()
+
+const gioco = false
+
+while(!gioco){
+    
+    opzioni()
+    attacoEnemico()
+
+    if(char.vita <= 0){
+        console.log("HAI PERSO")
+        gioco = true
+    } else if(mostroSele.vita <= 0){
+        console.log("EZ Win!")
+        gioco = true
+    }
+}
+
 
 
 
