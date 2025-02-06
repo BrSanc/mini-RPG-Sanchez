@@ -58,11 +58,7 @@ const listaMostri = [
 
 //Selezione Randomica del Mostro
 
-function SelezioneMostro(){
-    let mostroRandom = Math.floor(Math.random() * (2 - 0) + 0)
-    console.log(listaMostri[mostroRandom].name)
-
-}
+const mostroSele = listaMostri[Math.floor(Math.random() * (2 - 0) + 0)]
 
 // Opzioni Giocatore
 
@@ -112,7 +108,10 @@ console.log("")
 
 // Presentazione Mostro
 console.log("Oh no! è apparso")
-SelezioneMostro()
+console.log(mostroSele.name)
+
+
+
 
 
 opzioni()
