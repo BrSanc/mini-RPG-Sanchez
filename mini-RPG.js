@@ -29,6 +29,7 @@ let char = {
     attaco: Math.floor(Math.random() * (20 - 5) + 5),
     difesa: Math.floor(Math.random() * (10 - 0) + 0),
     cura: Math.floor(Math.random() * (70 - 50) + 70),
+    pozioni: 3,
 
 }
 
@@ -76,9 +77,9 @@ function opzioni(){
 
             console.log("xxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxxxx");
             // Attaco del aventuriero - difesa del mostro selezionato
-            const dannoReale = char.attaco - mostroSele.difesa
+            let dannoReale = char.attaco - mostroSele.difesa
             // Mostro perde vita
-            mostroSele.vita -= dannoReale
+            mostroSele.vita = mostroSele.vita - dannoReale
 
             console.log(`Il enemico ${mostroSele.name} ha perso ${dannoReale}: `)
             console.log(`Vita Enemico: ${mostroSele.vita} `)
@@ -86,13 +87,18 @@ function opzioni(){
             break;
 
         case 2: //CURA-------------
-
-            console.log("Cura")
-            console.log("xxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxxxx");
-            char.vita = char.vita + char.cura
-            console.log(`Ti curi di ${char.cura} - Vita Totale: ${char.vita} `)
-            console.log("")
-
+            char.pozioni --
+            if(char.pozioni > 0){
+                console.log("Cura")
+                console.log("xxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxxxx");
+                char.vita = char.vita + char.cura
+                console.log(`Ti curi di ${char.cura} - Vita Totale: ${char.vita} `)
+                console.log(`Pozioni rimanenti: ${char.pozioni}`)
+                console.log("")
+            } else {
+                console.log(`xxxxxxxxxxxxxxxxxx Non puoi curarti - 0 pozioni xxxxxxxxxxxxxxxxxxxxxx`);
+                console.log("")
+            }
             break;
 
         case 3: //FUGA-------------
