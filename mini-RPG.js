@@ -72,11 +72,24 @@ function opzioni(){
     let opzione = Number(prompt("1-Attacare 2-curarsi 3-tentare fuga"));
     switch (opzione) {
         case 1: //ATTACO------------
-            console.log("attaca");
+
+            console.log("xxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxxxx");
+            // Attaco del aventuriero - difesa del mostro selezionato
+            const dannoReale = char.attaco - mostroSele.difesa
+            // Mostro perde vita
+            mostroSele.vita -= dannoReale
+
+            console.log(`Il enemico ${mostroSele.name} ha perso ${dannoReale}: `)
+            console.log(`Vita Enemico: ${mostroSele.vita} `)
+            console.log("")
             break;
+
         case 2: //CURA-------------
+
             console.log("Cura")
+
             break;
+
         case 3: //FUGA-------------
             console.log("Fuga")   
             break;
@@ -88,6 +101,7 @@ function opzioni(){
 //Attaco Enemico
 function attacoEnemico(){
     // Il nemico togli vita al aventuriero
+    console.log(`xxxxxxxxxxxxxxxxxx ${mostroSele.name} ha attacato xxxxxxxxxxxxxxxxxxxxxx`);
     let dannoReale = mostroSele.attaco - char.difesa
     char.vita = char.vita - dannoReale 
     console.log(`l'aventuriero ${char.name} ha perso ${dannoReale}: `)
@@ -116,7 +130,7 @@ console.log(mostroSele.name)
 const gioco = false
 
 while(!gioco){
-    
+
     opzioni()
     attacoEnemico()
 
