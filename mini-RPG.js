@@ -23,11 +23,12 @@
 
 //Creazione Personaggio_______________________________________________________
 
-const char = {
+let char = {
     name: prompt("Nome del tuo personaggio: "),
     vita: 100,
     attaco: Math.floor(Math.random() * (20 - 5) + 5),
     difesa: Math.floor(Math.random() * (10 - 0) + 0),
+    cura: Math.floor(Math.random() * (70 - 50) + 70),
 
 }
 
@@ -87,6 +88,10 @@ function opzioni(){
         case 2: //CURA-------------
 
             console.log("Cura")
+            console.log("xxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxxxx");
+            char.vita = char.vita + char.cura
+            console.log(`Ti curi di ${char.cura} - Vita Totale: ${char.vita} `)
+            console.log("")
 
             break;
 
@@ -105,7 +110,7 @@ function attacoEnemico(){
     let dannoReale = mostroSele.attaco - char.difesa
     char.vita = char.vita - dannoReale 
     console.log(`l'aventuriero ${char.name} ha perso ${dannoReale}: `)
-    console.log(`Vita Totala: ${char.vita} `)
+    console.log(`Vita Totale: ${char.vita} `)
 }
 
 
@@ -120,6 +125,7 @@ console.log("")
 console.log("Nome Aventuriero: "+ char.name)
 console.log("Attaco: "+ char.attaco)
 console.log("Difesa: "+ char.difesa)
+console.log("Capacita di Cura: "+ char.cura)
 console.log("")
 
 // Presentazione Mostro
@@ -127,7 +133,7 @@ console.log("Oh no! è apparso")
 console.log(mostroSele.name)
 
 
-const gioco = false
+let gioco = false
 
 while(!gioco){
 
