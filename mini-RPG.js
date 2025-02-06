@@ -83,15 +83,17 @@ function opzioni(){
         default:
             break;
     }
+}
 
 //Attaco Enemico
 function attacoEnemico(){
-
+    // Il nemico togli vita al aventuriero
+    let dannoReale = mostroSele.attaco - char.difesa
+    char.vita = char.vita - dannoReale 
+    console.log(`l'aventuriero ${char.name} ha perso ${dannoReale}: `)
+    console.log(`Vita Totala: ${char.vita} `)
 }
 
-
-
-}
 
 //Console----------------------------------------------------------
 
@@ -109,10 +111,6 @@ console.log("")
 // Presentazione Mostro
 console.log("Oh no! è apparso")
 console.log(mostroSele.name)
-
-
-
-
 
 opzioni()
 attacoEnemico()
