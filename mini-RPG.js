@@ -33,18 +33,35 @@ const char = {
 
 // Creazione Mostri______________________________________________________
 
-const slime = {
-    name: "Slime",
-    vita: 25,
-    attaco: 20,
-    difesa: 5,
-}
+const listaMostri = [
+    {
+        name: "Slime",
+        vita: 25,
+        attaco: 20,
+        difesa: 5,
+    },
 
-const Dio = {
-    name: "Basuso",
-    vita: 10000,
-    attaco: 100,
-    difesa: 50,
+    {
+        name: "Orco",
+        vita: 70,
+        attaco: 35,
+        difesa: 10,
+    },
+
+    {
+        name: "Basuso",
+        vita: 10000,
+        attaco: 100,
+        difesa: 50,
+    }
+]
+
+//Selezione Randomica del Mostro
+
+function SelezioneMostro(){
+    let mostroRandom = Math.floor(Math.random() * (2 - 0) + 0)
+    console.log(listaMostri[mostroRandom].name)
+
 }
 
 // Opzioni Giocatore
@@ -71,7 +88,11 @@ function opzioni(){
             break;
     }
 
-//
+//Attaco Enemico
+function attacoEnemico(){
+
+}
+
 
 
 }
@@ -83,12 +104,20 @@ console.log("                             Mini RPG                              
 console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 console.log("")
 
+// Descrizione del Aventuriero
 console.log("Nome Aventuriero: "+ char.name)
 console.log("Attaco: "+ char.attaco)
 console.log("Difesa: "+ char.difesa)
+console.log("")
+
+// Presentazione Mostro
+console.log("Oh no! è apparso")
+SelezioneMostro()
+
 
 opzioni()
-opzioni()
+attacoEnemico()
+
 
 
 
