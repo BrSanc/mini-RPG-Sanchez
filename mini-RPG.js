@@ -24,7 +24,7 @@
 //Creazione Personaggio_______________________________________________________
 
 let char = {
-    name: prompt("Nome del tuo personaggio: "),
+    name: "",
     vita: 100,
     attaco: Math.floor(Math.random() * (20 - 5) + 5),
     difesa: Math.floor(Math.random() * (10 - 0) + 0),
@@ -41,6 +41,7 @@ const listaMostri = [
         vita: 25,
         attaco: 20,
         difesa: 5,
+        Fuga: 90,
     },
 
     {
@@ -48,6 +49,7 @@ const listaMostri = [
         vita: 70,
         attaco: 35,
         difesa: 10,
+        Fuga: 50,
     },
 
     {
@@ -55,6 +57,7 @@ const listaMostri = [
         vita: 10000,
         attaco: 100,
         difesa: 50,
+        Fuga: 0,
     }
 ]
 
@@ -73,9 +76,9 @@ function opzioni(){
     // Chiediamo al User una delle 3 opzioni
     let opzione = Number(prompt("1-Attacare 2-curarsi 3-tentare fuga"));
     switch (opzione) {
-        case 1: //ATTACO------------
+        case 1: //ATTACO----------------------------------------------------------
 
-            console.log("xxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxxxx");
+            console.log("xxxxxxxxxxxxxxxxxxxx hai attacato xxxxxxxxxxxxxxxxxxxx");
             // Attaco del aventuriero - difesa del mostro selezionato
             let dannoReale = char.attaco - mostroSele.difesa
             // Mostro perde vita
@@ -86,24 +89,38 @@ function opzioni(){
             console.log("")
             break;
 
-        case 2: //CURA-------------
+        case 2: //CURA------------------------------------------------------------
+            // Ogni turno perde una pozione
             char.pozioni --
+
+            // Aventuriero si cura
             if(char.pozioni > 0){
-                console.log("Cura")
-                console.log("xxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxxxx");
+                console.log("xxxxxxxxxxxxxxxxxxxx Ti curi xxxxxxxxxxxxxxxxxxxx");
                 char.vita = char.vita + char.cura
                 console.log(`Ti curi di ${char.cura} - Vita Totale: ${char.vita} `)
                 console.log(`Pozioni rimanenti: ${char.pozioni}`)
                 console.log("")
+
+            //Se non ha pozioni, non si cura
             } else {
-                console.log(`xxxxxxxxxxxxxxxxxx Non puoi curarti - 0 pozioni xxxxxxxxxxxxxxxxxxxxxx`);
+                console.log(`xxxxxxxxxxxxxxxxxxxx Non puoi curarti - 0 pozioni xxxxxxxxxxxxxxxxxxxx`);
                 console.log("")
             }
             break;
 
-        case 3: //FUGA-------------
-            console.log("Fuga")   
+        case 3: //FUGA------------------------------------------------------------------
+                console.log("xxxxxxxxxxxxxxxxxxxx Probi a scapare xxxxxxxxxxxxxxxxxxxx"); 
+            let tentativoDiFuga =  Math.floor(Math.random() * (100 - 0) + 0)
+            if( tentativoDiFuga <= mostroSele.Fuga ){  
+                console.log("xxxxxxxxxxxxxxxxxxxx SEI SCAPATO xxxxxxxxxxxxxxxxxxxx")
+                console.log("")
+                gioco = true
+            } else{
+                console.log("xxxxxxxxxxxxxxxxxxxx Non sei riuscito ad escapare xxxxxxxxxxxxxxxxxxxx")
+                console.log("")
+            }
             break;
+
         default:
             break;
     }
@@ -112,7 +129,7 @@ function opzioni(){
 //Attaco Enemico
 function attacoEnemico(){
     // Il nemico togli vita al aventuriero
-    console.log(`xxxxxxxxxxxxxxxxxx ${mostroSele.name} ha attacato xxxxxxxxxxxxxxxxxxxxxx`);
+    console.log(`xxxxxxxxxxxxxxxxxxxx ${mostroSele.name} ha attacato xxxxxxxxxxxxxxxxxxxx`);
     let dannoReale = mostroSele.attaco - char.difesa
     char.vita = char.vita - dannoReale 
     console.log(`l'aventuriero ${char.name} ha perso ${dannoReale}: `)
@@ -128,6 +145,7 @@ console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 console.log("")
 
 // Descrizione del Aventuriero
+char.name = prompt("Nome del tuo personaggio: "),
 console.log("Nome Aventuriero: "+ char.name)
 console.log("Attaco: "+ char.attaco)
 console.log("Difesa: "+ char.difesa)
@@ -143,6 +161,8 @@ let gioco = false
 
 while(!gioco){
 
+    
+
     opzioni()
     attacoEnemico()
 
@@ -153,6 +173,8 @@ while(!gioco){
         console.log("EZ Win!")
         gioco = true
     }
+
+    
 }
 
 
