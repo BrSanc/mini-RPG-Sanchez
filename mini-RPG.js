@@ -21,7 +21,7 @@
 
 // ENTI --------------------------------------------------------
 
-//Creazione Personaggio
+//Creazione Personaggio_______________________________________________________
 
 const char = {
     name: prompt("Nome del tuo personaggio: "),
@@ -30,6 +30,28 @@ const char = {
     difesa: Math.floor(Math.random() * (10 - 0) + 0),
 
 }
+
+// Creazione Mostri______________________________________________________
+
+const slime = {
+    name: "Slime",
+    vita: 25,
+    attaco: 20,
+    difesa: 5,
+}
+
+const Dio = {
+    name: "Basuso",
+    vita: 10000,
+    attaco: 100,
+    difesa: 50,
+}
+
+
+console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log("                             Mini RPG                                          ")
+console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+console.log("")
 
 
 
